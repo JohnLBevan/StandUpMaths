@@ -1,4 +1,22 @@
 ﻿#https://www.youtube.com/watch?v=Wim9WJeDTHQ :: multiplicative persistence.
+Function Get-BigIntMultiple {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [int[]]$Digit
+    )
+    Begin {
+        [System.Numerics.BigInteger]$runningTotal = 1
+    }
+    Process {
+        foreach($d in $Digit) {
+            $runningTotal *= $d
+        }
+    }
+    End {
+        $runningTotal
+    }
+}
 
 Function Get-MultiplicativePersistenceSteps {
     [CmdletBinding()]
@@ -13,9 +31,7 @@ Function Get-MultiplicativePersistenceSteps {
     if ($InputObject.Length -le 1) {
         $Step
     } else {
-        [UInt64]$total = 1
-        $InputObject.ToCharArray() | ForEach-Object {$total *= [UInt64]::Parse($_)}
-        Get-MultiplicativePersistenceSteps -InputObject ([string]$total) -Step ($Step + 1)
+        Get-MultiplicativePersistenceSteps -InputObject ([string]($InputObject.ToCharArray() | ForEach-Object {[int]::Parse($_)} | Get-BigIntMultiple)) -Step ($Step + 1)
     }
 }
 
@@ -42,10 +58,10 @@ Function Invoke-MPHunter {
     [CmdletBinding()]
     Param (
         [Parameter()]
-        $MinLength = 1
+        [int]$MinLength = 1
         ,
         [Parameter()]
-        $MaxLength = 20
+        [int]$MaxLength = 20
     )
     [int]$maxSteps = 0
     $MinLength..$MaxLength | ForEach-Object {
@@ -65,4 +81,4 @@ Function Invoke-MPHunter {
 
 Invoke-MPHunter -InformationAction Continue | Format-Table -AutoSize
 
-#note from the video you'd want to run start at minlength 233 (or 234) to start looking for new values; e.g.  Invoke-MPHunter -InformationAction Continue -MinLength 233 -MaxLength 100 | Format-Table -AutoSize
+#note from the video you'd want to run start at minlength 233 (or 234) to start looking for new values; e.g.  Invoke-MPHunter -InformationAction Continue -MinLength 233 -MaxLength 1000 | Format-Table -AutoSize
