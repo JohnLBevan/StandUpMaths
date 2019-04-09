@@ -1,0 +1,25 @@
+New Max Found 001: 15
+New Max Found 002: 25
+New Max Found 003: 39
+New Max Found 004: 77
+New Max Found 005: 679
+New Max Found 006: 6788
+New Max Found 007: 68889
+New Max Found 008: 2677889
+New Max Found 009: 26888999
+New Max Found 010: 3778888999
+New Max Found 011: 277777788888899
+
+Steps Sequence       
+----- --------       
+    1 15             
+    2 25             
+    3 39             
+    4 77             
+    5 679            
+    6 6788           
+    7 68889          
+    8 2677889        
+    9 26888999       
+   10 3778888999     
+   11 277777788888899
