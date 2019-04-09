@@ -65,4 +65,4 @@ Function Invoke-MPHunter {
 
 Invoke-MPHunter -InformationAction Continue | Format-Table -AutoSize
 
-#note from the video you'd want to run start at minlength 233 (or 234) to start looking for new values; e.g.  Invoke-MPHunter -InformationAction Continue -MinLength 233 -MaxLength 100 | Format-Table -AutoSize
+#note from the video you'd want to run start at minlength 233 (or 234) to start looking for new values; e.g.  Invoke-MPHunter -InformationAction Continue -MinLength 233 -MaxLength 1000 | Format-Table -AutoSize
