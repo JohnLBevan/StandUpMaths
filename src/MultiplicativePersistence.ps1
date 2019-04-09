@@ -49,7 +49,7 @@ Function Invoke-MPHunter {
     )
     [int]$maxSteps = 0
     $MinLength..$MaxLength | ForEach-Object {
-        Invoke-TestMPGenerator -Length $_ | Sort-Object | %{
+        Invoke-TestMPGenerator -Length $_ | Sort-Object | ForEach-Object{
             $steps = Get-MultiplicativePersistenceSteps -InputObject $_
             if ($steps -gt $maxSteps) {
                 $maxSteps = $steps
