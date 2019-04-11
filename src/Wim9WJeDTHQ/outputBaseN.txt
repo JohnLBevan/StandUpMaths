@@ -1,0 +1,38 @@
+Searching up to 20 digit values in various bases:
+
+Base 02: New Max Found 001: 10 					#Note: the value reported by the script is 11 since we skip 0s in our strings as those strings will always be length 1; so we can ignore/optimise.  This means there's a slight bug; but given the first string for any base will always be 10 it's not that intresting / we can ignore it
+Base 03: New Max Found 004: 222222222222222
+Base 04: New Max Found 005: 3333333333
+Base 05: New Max Found 006: 33444444
+Base 06: New Max Found 005: 2455555
+Base 07: New Max Found 007: 455555555555566666
+
+Here's the incremental steps (again, tweaked for the 11 vs 10 bug):
+
+Base 02: New Max Found 001: 10
+Base 03: New Max Found 001: 10
+Base 03: New Max Found 002: 22
+Base 03: New Max Found 004: 222222222222222
+Base 04: New Max Found 001: 10
+Base 04: New Max Found 002: 22
+Base 04: New Max Found 003: 233333
+Base 04: New Max Found 005: 3333333333
+Base 05: New Max Found 001: 10
+Base 05: New Max Found 002: 23
+Base 05: New Max Found 003: 234
+Base 05: New Max Found 004: 33333
+Base 05: New Max Found 006: 33444444
+Base 06: New Max Found 001: 10
+Base 06: New Max Found 002: 23
+Base 06: New Max Found 003: 244
+Base 06: New Max Found 004: 3335
+Base 06: New Max Found 005: 2455555
+Base 07: New Max Found 001: 10
+Base 07: New Max Found 002: 24
+Base 07: New Max Found 003: 45
+Base 07: New Max Found 004: 245
+Base 07: New Max Found 005: 66666
+Base 07: New Max Found 006: 4555556
+Base 07: New Max Found 007: 455555555555566666
+
+(the script in its default version keeps going up to base 16; but I just wanted a quick run to produce some sample data for this file, so stopped at base 7.

@@ -49,6 +49,7 @@ Function Invoke-TestMPGenerator { #note: output is not sorted; we can choose to 
     )
     if ($Length -le 0) {
         $ValuePart
+        if ($ValuePart -like '*999999999') {Write-Information "- Progress Update: Just Processed $ValuePart"} #just whacked this in so we know something's happenning
     } else {
         $GEDigit..9 | ForEach-Object {Invoke-TestMPGenerator -Length ($Length - 1) -ValuePart ($ValuePart + "$_") -GEDigit ([Math]::Max($_,5))}
     }
