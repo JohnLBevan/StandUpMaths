@@ -90,7 +90,7 @@ Function Get-MultiplicativePersistenceSteps {
         if ($InputObject.Length -le 1) {
             $Step
         } else {
-            Get-MultiplicativePersistenceSteps -InputObject ([string]($InputObject.ToCharArray() | Convert-SymbolToDec -Symbols $Symbols | Get-BigIntMultiple | ConvertTo-BaseN -Symbols $Symbols)) -Step ($Step + 1)
+            Get-MultiplicativePersistenceSteps -InputObject ([string]($InputObject.ToCharArray() | Convert-SymbolToDec -Symbols $Symbols | Get-BigIntMultiple | ConvertTo-BaseN -Symbols $Symbols)) -Step ($Step + 1) -Symbols $Symbols
         }
     }
 }
